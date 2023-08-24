@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [dogs, setDogs] = useState([])
+
+    const fetchCars = () => {
+
+        fetch("https://dog.ceo/api/breeds/image/random/3")
+            .then(res => res.json())
+            .then(data => setDogs(data.message))
+            .catch(e => console.log("this is the error === ", e));
+    }
+
+    return (
+        <div className="App">
+            <button onClick={fetchCars}>
+                Fetch Data
+            </button>
+            <div>
+                {
+                  dogs.map((dog, index) => (
+                      <img key={index} src={dog} alt="dog image"/>
+                  ))
+                }
+            </div>
+        </div>
+    );
 }
 
 export default App;
