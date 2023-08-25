@@ -1,0 +1,43 @@
+/* For the wrapper around dog images */
+.dog-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* For each dog card */
+.dog-card {
+    border: 0px solid #ccc;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+}
+
+/* For the image inside the dog card */
+.dog-card img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+/* For the button */
+.fetch-button {
+    padding: 1em;
+    background-color: purple;
+    color: white;
+    display: block;
+    margin: 1em auto;
+}
+
+/* For the background gradient */
+body {
+    background: linear-gradient(45deg, lightblue, lightgreen);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+}

@@ -1,16 +1,8 @@
 import {fetchDogImages} from "./learnings/fetch";
 import React, { useState } from 'react';
+import './index.css';
 
 function App() {
-
-    const cardStyle: React.CSSProperties = {
-        border: '1px solid #ddd',
-        borderRadius: '4px',
-        padding: '16px',
-        margin: '16px',
-        textAlign: 'center',
-    };
-
 
     /**
      * The code below is a local state that has an array of strings where we can store and update the list of dog images that will be displayed on the ui.
@@ -30,11 +22,13 @@ function App() {
      */
     return (
         <div className="App">
-            <button onClick={() => fetchDogImages(updateDogImages)}>Fetch Data</button>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+            <button className="fetch-button" onClick={() => fetchDogImages(updateDogImages)}>
+                Fetch Data
+            </button>
+            <div className="dog-wrapper">
                 {dogImages.map((dog, index) => (
-                    <div key={index} style={cardStyle}>
-                        <img src={dog} alt="dog" style={{ width: '100%', height: 'auto' }} />
+                    <div key={index} className="dog-card">
+                        <img src={dog} alt="dog" />
                     </div>
                 ))}
             </div>
